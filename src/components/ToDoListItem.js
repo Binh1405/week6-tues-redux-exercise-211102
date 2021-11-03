@@ -24,12 +24,12 @@ const ToDoListItem = ({id, text, done}) => {
         } else {
             dispatch({type:"undone", payload: id})
         }
-        console.log("done", e)
+        // console.log("done", e)
     }
    
     return (
         <div>
-            {done ? 'done' : text}
+            {done ? `${text}: done` : text}
             {' '}
             <span> 
                 <button onClick={handleDelete}>X</button>

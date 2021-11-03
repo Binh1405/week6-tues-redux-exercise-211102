@@ -3,19 +3,19 @@ import { useDispatch } from 'react-redux'
 
 const Header = () => {
     const [text, setText] = useState("")
-
+    const dispatch = useDispatch()
+    
     const handleChange = (e) => {
         setText (e.target.value)
     }
-
-    const dispatch = useDispatch()
 
     const handleKeyDown=(e) => {
         // console.log("e", e)
         // console.log("e", e.which)
         const trimText = text.trim()
         if(e.which === 13 && trimText){
-            dispatch({type: "addToDo", payload: trimText}) //{type: "addToDo", payload:trimText}
+            dispatch({type: "addToDo", payload: trimText})
+            setText ("") 
         }
     }
 
