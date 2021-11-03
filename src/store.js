@@ -2,8 +2,8 @@ import {createStore} from "redux"
 
 const initialState = {
     todos: [
-        {id: 1, text: "wake up", isDeleted: false}, 
-        {id: 2, text: "take a shower", isDeleted: false}
+        {id: 1, text: "wake up", isDeleted: false, done: false}, 
+        {id: 2, text: "take a shower", isDeleted: false, done: false}
     ], 
 }
 
