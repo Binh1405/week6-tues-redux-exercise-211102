@@ -9,6 +9,7 @@ const initialState = {
 
 //action: obj with the type {type: "im a type", }
 const reducer = (state=initialState, action) => {
+    console.log("state", state)
     console.log("action", action)
     if (action.type ==="addToDo"){
     return {
@@ -40,6 +41,7 @@ const reducer = (state=initialState, action) => {
             todos: newArray,
         }
     }
+    return state
 }
 const store = createStore(reducer)
 export default store
