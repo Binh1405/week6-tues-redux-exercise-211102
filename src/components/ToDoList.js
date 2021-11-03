@@ -9,7 +9,7 @@ const ToDoList = () => {
         <div>
             {
             todos.map((todo) => todo.isDeleted?null:(
-            <ToDoListItem key={todo.id} id={todo.id} text={todo.text} />
+            <ToDoListItem key={todo.id} id={todo.id} text={todo.text} done={todo.done} />
             )
             )}
         </div>

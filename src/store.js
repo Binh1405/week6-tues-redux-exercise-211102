@@ -9,8 +9,8 @@ const initialState = {
 
 //action: obj with the type {type: "im a type", }
 const reducer = (state=initialState, action) => {
-    console.log("state", state)
-    console.log("action", action)
+    // console.log("state", state)
+    // console.log("action", action)
     if (action.type ==="addToDo"){
     return {
         todos: [
@@ -36,11 +36,40 @@ const reducer = (state=initialState, action) => {
     }
 }
     if(action.type === "edit"){
-        const newArray = state.todos.map((todo) => todo.id === action.payload? {...todo, text: action.text}: todo)        
+        // const theToDoIWantToCheck= state.todos.find((todo) => todo.id === action.payload)
+        // console.log("theToDoIWantToCheck", theToDoIWantToCheck)
+        // const newToDoToEdit = {...theToDoIWantToCheck, text: action.text}
+        const newArray = state.todos.map((todo) => todo.id === action.payload ? {...todo, text: action.text} : todo)        
         return {
             todos: newArray,
         }
     }
+    if(action.type === "done"){
+        // const newArray = state.todos.filter(todo => todo.id !== action.payload)
+        const newArray = state.todos.map((todo) => {
+            if(todo.id === action.payload){
+                todo.done = true
+                return todo 
+            }
+            return todo
+        })
+        return {
+        todos: newArray,
+    }
+}
+if(action.type === "undone"){
+    // const newArray = state.todos.filter(todo => todo.id !== action.payload)
+    const newArray = state.todos.map((todo) => {
+        if(todo.id === action.payload){
+            todo.done = false
+            return todo 
+        }
+        return todo
+    })
+    return {
+    todos: newArray,
+}
+}
     return state
 }
 const store = createStore(reducer)
